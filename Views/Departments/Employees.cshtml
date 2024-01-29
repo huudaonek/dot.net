@@ -1,0 +1,79 @@
+﻿@model Management.Models.Department
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<h1>Employees</h1>
+
+<h4>Department: @Model.Name</h4>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Code
+            </th>
+            <th>
+                Location
+            </th>
+            <th>
+                Number of Employees
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.NumberOfEmployees)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Employees in this Department</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Code
+            </th>
+            <th>
+                Rank
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => employee.Rank)
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
